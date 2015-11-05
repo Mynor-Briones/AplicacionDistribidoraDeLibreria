@@ -1,0 +1,7 @@
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\bin\Release\CapaNegocio.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\bin\Release\CapaNegocio.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\bin\Release\CapaDatos.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\bin\Release\CapaDatos.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\obj\Release\CapaNegocio.csprojResolveAssemblyReference.cache
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\obj\Release\CapaNegocio.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaNegocio\obj\Release\CapaNegocio.pdb

@@ -1,0 +1,10 @@
+C:\Users\Toshiba\documents\visual studio 2013\Projects\AplicacionEmpresa\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Toshiba\documents\visual studio 2013\Projects\AplicacionEmpresa\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Toshiba\documents\visual studio 2013\Projects\AplicacionEmpresa\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Toshiba\documents\visual studio 2013\Projects\AplicacionEmpresa\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Toshiba\documents\visual studio 2013\Projects\AplicacionEmpresa\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaDatos\obj\Debug\CapaDatos.csprojResolveAssemblyReference.cache
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\CapaDatos\obj\Debug\CapaDatos.pdb

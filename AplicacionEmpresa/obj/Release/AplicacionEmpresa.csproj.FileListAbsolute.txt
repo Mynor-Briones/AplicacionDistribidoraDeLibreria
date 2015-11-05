@@ -1,0 +1,14 @@
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\AplicacionEmpresa.exe.config
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\AplicacionEmpresa.exe
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\AplicacionEmpresa.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaPresentacion.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaNegocio.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaDatos.dll
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaPresentacion.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaNegocio.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\bin\Release\CapaDatos.pdb
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\obj\Release\AplicacionEmpresa.csprojResolveAssemblyReference.cache
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\obj\Release\AplicacionEmpresa.Properties.Resources.resources
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\obj\Release\AplicacionEmpresa.csproj.GenerateResource.Cache
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\obj\Release\AplicacionEmpresa.exe
+C:\Users\Toshiba\Documents\Visual Studio 2013\Projects\AplicacionDistribidoraDeLibreria\AplicacionEmpresa\obj\Release\AplicacionEmpresa.pdb
