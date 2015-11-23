@@ -41,10 +41,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelBuscarCodigo = new System.Windows.Forms.Label();
             this.textboxNombreBuscar = new System.Windows.Forms.TextBox();
-            this.buttonBuscar = new System.Windows.Forms.Button();
+            this.buttonRefrescar = new System.Windows.Forms.Button();
             this.labelTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.labelMensajes = new System.Windows.Forms.Label();
             this.tableLayoutPanelPaginacion = new System.Windows.Forms.TableLayoutPanel();
             this.buttonPaginacionAtras = new System.Windows.Forms.Button();
             this.labelPaginacion = new System.Windows.Forms.Label();
@@ -67,13 +66,13 @@
             this.tableLayoutPanelPrincipal.Controls.Add(this.tableLayoutPanelTop, 0, 0);
             this.tableLayoutPanelPrincipal.Controls.Add(this.tableLayoutPanel2, 0, 2);
             this.tableLayoutPanelPrincipal.Controls.Add(this.dataGridViewProductos, 0, 1);
-            this.tableLayoutPanelPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelPrincipal.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelPrincipal.Name = "tableLayoutPanelPrincipal";
             this.tableLayoutPanelPrincipal.RowCount = 3;
             this.tableLayoutPanelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanelPrincipal.Size = new System.Drawing.Size(1235, 636);
+            this.tableLayoutPanelPrincipal.Size = new System.Drawing.Size(1229, 633);
             this.tableLayoutPanelPrincipal.TabIndex = 0;
             // 
             // tableLayoutPanelTop
@@ -91,7 +90,7 @@
             this.tableLayoutPanelTop.Name = "tableLayoutPanelTop";
             this.tableLayoutPanelTop.RowCount = 1;
             this.tableLayoutPanelTop.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelTop.Size = new System.Drawing.Size(1229, 91);
+            this.tableLayoutPanelTop.Size = new System.Drawing.Size(1223, 91);
             this.tableLayoutPanelTop.TabIndex = 0;
             // 
             // tableLayoutPanelManipulacion
@@ -104,7 +103,7 @@
             this.tableLayoutPanelManipulacion.Controls.Add(this.buttonEditar, 1, 0);
             this.tableLayoutPanelManipulacion.Controls.Add(this.buttonEliminar, 2, 0);
             this.tableLayoutPanelManipulacion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelManipulacion.Location = new System.Drawing.Point(972, 3);
+            this.tableLayoutPanelManipulacion.Location = new System.Drawing.Point(966, 3);
             this.tableLayoutPanelManipulacion.Name = "tableLayoutPanelManipulacion";
             this.tableLayoutPanelManipulacion.RowCount = 1;
             this.tableLayoutPanelManipulacion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -145,6 +144,7 @@
             this.buttonEditar.Text = "EDITAR";
             this.buttonEditar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonEliminar
             // 
@@ -162,6 +162,7 @@
             this.buttonEliminar.Text = "ELIMINAR";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // groupBoxBuscar
             // 
@@ -170,7 +171,7 @@
             this.groupBoxBuscar.Controls.Add(this.tableLayoutPanel1);
             this.groupBoxBuscar.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxBuscar.ForeColor = System.Drawing.Color.Orange;
-            this.groupBoxBuscar.Location = new System.Drawing.Point(731, 0);
+            this.groupBoxBuscar.Location = new System.Drawing.Point(725, 0);
             this.groupBoxBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxBuscar.Name = "groupBoxBuscar";
             this.groupBoxBuscar.Size = new System.Drawing.Size(238, 91);
@@ -185,7 +186,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.06806F));
             this.tableLayoutPanel1.Controls.Add(this.labelBuscarCodigo, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.textboxNombreBuscar, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.buttonBuscar, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.buttonRefrescar, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 22);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
@@ -220,22 +221,22 @@
             this.textboxNombreBuscar.TabIndex = 1;
             this.textboxNombreBuscar.TextChanged += new System.EventHandler(this.textboxNombreBuscar_TextChanged);
             // 
-            // buttonBuscar
+            // buttonRefrescar
             // 
-            this.buttonBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonRefrescar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonBuscar.BackColor = System.Drawing.Color.Gray;
-            this.buttonBuscar.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonBuscar.ForeColor = System.Drawing.Color.Orange;
-            this.buttonBuscar.Location = new System.Drawing.Point(97, 32);
-            this.buttonBuscar.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(129, 32);
-            this.buttonBuscar.TabIndex = 2;
-            this.buttonBuscar.Text = "Actualizar";
-            this.buttonBuscar.UseVisualStyleBackColor = false;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
+            this.buttonRefrescar.BackColor = System.Drawing.Color.Gray;
+            this.buttonRefrescar.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRefrescar.ForeColor = System.Drawing.Color.Orange;
+            this.buttonRefrescar.Location = new System.Drawing.Point(97, 32);
+            this.buttonRefrescar.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonRefrescar.Name = "buttonRefrescar";
+            this.buttonRefrescar.Size = new System.Drawing.Size(129, 32);
+            this.buttonRefrescar.TabIndex = 2;
+            this.buttonRefrescar.Text = "Actualizar";
+            this.buttonRefrescar.UseVisualStyleBackColor = false;
+            this.buttonRefrescar.Click += new System.EventHandler(this.buttonRefrescar_Click);
             // 
             // labelTitulo
             // 
@@ -256,26 +257,13 @@
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 61.02522F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.97478F));
-            this.tableLayoutPanel2.Controls.Add(this.labelMensajes, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanelPaginacion, 1, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 568);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 565);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1229, 65);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1223, 65);
             this.tableLayoutPanel2.TabIndex = 7;
-            // 
-            // labelMensajes
-            // 
-            this.labelMensajes.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelMensajes.AutoSize = true;
-            this.labelMensajes.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMensajes.Location = new System.Drawing.Point(3, 23);
-            this.labelMensajes.Name = "labelMensajes";
-            this.labelMensajes.Size = new System.Drawing.Size(445, 19);
-            this.labelMensajes.TabIndex = 4;
-            this.labelMensajes.Text = "Bienvenido al Sistema de Gestión. Este será su Área de Mensajes";
-            this.labelMensajes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableLayoutPanelPaginacion
             // 
@@ -287,7 +275,7 @@
             this.tableLayoutPanelPaginacion.Controls.Add(this.buttonPaginacionAtras, 1, 0);
             this.tableLayoutPanelPaginacion.Controls.Add(this.labelPaginacion, 0, 0);
             this.tableLayoutPanelPaginacion.Controls.Add(this.buttonPaginacionSiguiente, 3, 0);
-            this.tableLayoutPanelPaginacion.Location = new System.Drawing.Point(752, 3);
+            this.tableLayoutPanelPaginacion.Location = new System.Drawing.Point(749, 3);
             this.tableLayoutPanelPaginacion.Name = "tableLayoutPanelPaginacion";
             this.tableLayoutPanelPaginacion.RowCount = 1;
             this.tableLayoutPanelPaginacion.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -377,7 +365,7 @@
             this.dataGridViewProductos.ReadOnly = true;
             this.dataGridViewProductos.RowHeadersVisible = false;
             this.dataGridViewProductos.RowTemplate.Height = 25;
-            this.dataGridViewProductos.Size = new System.Drawing.Size(1223, 462);
+            this.dataGridViewProductos.Size = new System.Drawing.Size(1217, 459);
             this.dataGridViewProductos.TabIndex = 8;
             // 
             // Productos
@@ -395,7 +383,6 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanelPaginacion.ResumeLayout(false);
             this.tableLayoutPanelPaginacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductos)).EndInit();
@@ -406,7 +393,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelPrincipal;
-        private System.Windows.Forms.Label labelMensajes;
         private System.Windows.Forms.Label labelPaginacion;
         private System.Windows.Forms.Button buttonPaginacionAtras;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -422,7 +408,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label labelBuscarCodigo;
         private System.Windows.Forms.TextBox textboxNombreBuscar;
-        private System.Windows.Forms.Button buttonBuscar;
+        private System.Windows.Forms.Button buttonRefrescar;
         private System.Windows.Forms.Label labelTitulo;
     }
 }

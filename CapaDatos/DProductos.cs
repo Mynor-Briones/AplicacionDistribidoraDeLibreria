@@ -21,7 +21,7 @@ namespace CapaDatos
         public String Nombre_Buscado { get; set; }
         
         
-        /* VIDEO 13  9:09  Constructor,  */
+        /* V 13  9:09  Constructor,  */
           public DProductos()
           {
 
@@ -252,6 +252,143 @@ namespace CapaDatos
                     Respuesta = "Error al intentar ejecutar el procedimiento almacenado Produccion.InsertarProducto. " + ex.Message;
                 }
             }
+            finally
+            {
+                if (SqlConexion.State == ConnectionState.Open)
+                {
+                    SqlConexion.Close();
+                }
+            }
+
+            return Respuesta;
+        }
+
+        public string Eliminar(DProductos parProductos)
+        {
+            string Respuesta = "";
+            SqlConnection SqlConexion = new SqlConnection();
+
+            try
+            {
+                SqlConexion.ConnectionString = DConexion.cnDBEmpresa;
+                SqlConexion.Open();
+
+                SqlCommand SqlComando = new SqlCommand();
+                SqlComando.Connection = SqlConexion;
+                SqlComando.CommandText = "Produccion.ProductosEliminar";
+                SqlComando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParId_Producto = new SqlParameter();
+                ParId_Producto.ParameterName = "@Id_Producto";
+                ParId_Producto.SqlDbType = SqlDbType.Int;
+                ParId_Producto.Value = parProductos.Id_Producto;
+                SqlComando.Parameters.Add(ParId_Producto);
+
+                SqlComando.ExecuteNonQuery();
+                Respuesta = "Y";
+            }
+
+            catch (SqlException ex)
+            {
+                if (ex.Number == 547)
+                {
+                    Respuesta = "No puedes eliminar un producto presente en un Pedido. Debes eliminar o actualizar los Pedidos antes de eliminar el producto.";
+                }
+
+                else
+                {
+                    Respuesta = "Error al intentar ejecutar el procedimiento almacenado Produccion.EliminarProducto. " + ex.Message;
+                }
+            }
+            finally
+            {
+                if (SqlConexion.State == ConnectionState.Open)
+                {
+                    SqlConexion.Close();
+                }
+            }
+            return Respuesta;
+        }
+
+        //******************************************************
+        //******************************************************
+
+        public string Editar(DProductos parProductos)
+        {
+            string Respuesta = "";
+            SqlConnection SqlConexion = new SqlConnection();
+
+            try
+            {
+                SqlConexion.ConnectionString = DConexion.cnDBEmpresa;
+                SqlConexion.Open();
+
+                SqlCommand SqlComando = new SqlCommand();
+                SqlComando.Connection = SqlConexion;
+                SqlComando.CommandText = "Produccion.ProductosEditar";
+                SqlComando.CommandType = CommandType.StoredProcedure;
+
+                SqlParameter ParId_Producto = new SqlParameter();
+                ParId_Producto.ParameterName = "@Id_Producto";
+                ParId_Producto.SqlDbType = SqlDbType.Int;
+                ParId_Producto.Value = parProductos.Id_Producto;
+                SqlComando.Parameters.Add(ParId_Producto);
+
+                SqlParameter ParNombre_Producto = new SqlParameter();
+                ParNombre_Producto.ParameterName = "@Nombre_Producto";
+                ParNombre_Producto.SqlDbType = SqlDbType.VarChar;
+                ParNombre_Producto.Size = parProductos.Nombre_Producto.Length;
+                ParNombre_Producto.Value = parProductos.Nombre_Producto;
+                SqlComando.Parameters.Add(ParNombre_Producto);
+
+                SqlParameter ParNombre_Categoria = new SqlParameter();
+                ParNombre_Categoria.ParameterName = "@Nombre_Categoria";
+                ParNombre_Categoria.SqlDbType = SqlDbType.VarChar;
+                ParNombre_Categoria.Size = parProductos.Nombre_Categoria.Length;
+                ParNombre_Categoria.Value = parProductos.Nombre_Categoria;
+                SqlComando.Parameters.Add(ParNombre_Categoria);
+
+                SqlParameter ParPrecio_Unitario = new SqlParameter();
+                ParPrecio_Unitario.ParameterName = "@Precio_Unitario";
+                ParPrecio_Unitario.SqlDbType = SqlDbType.Money;
+                ParPrecio_Unitario.Value = parProductos.Precio_Unitario;
+                SqlComando.Parameters.Add(ParPrecio_Unitario);
+
+                SqlParameter ParDetalles = new SqlParameter();
+                ParDetalles.ParameterName = "@Detalles";
+                ParDetalles.SqlDbType = SqlDbType.VarChar;
+                ParDetalles.Size = parProductos.Detalles.Length;
+                ParDetalles.Value = parProductos.Detalles;
+                SqlComando.Parameters.Add(ParDetalles);
+
+                SqlComando.ExecuteNonQuery();
+                Respuesta = "Y";
+            }
+
+            catch (SqlException ex)
+            {
+                if (ex.Number == 8152)
+                {
+                    Respuesta = "Has introducido demasiados caracteres en uno de los campos";
+                }
+                else if (ex.Number == 2627)
+                {
+                    Respuesta = "Ya existe un producto con ese Nombre";
+                }
+                else if (ex.Number == 515)
+                {
+                    Respuesta = "No puedes dejar los campos Nombre y Categoría vacíos";
+                }
+                else if (ex.Number == 50000)
+                {
+                    Respuesta = "Debes ingresar el nombre de una Categoría existente. Para ingresar una nueva Categoría, primero debes crearla.";
+                }
+                else
+                {
+                    Respuesta = "Error al intentar ejecutar el procedimiento almacenado Produccion.EditarProducto. " + ex.Message;
+                }
+            }
+
             finally
             {
                 if (SqlConexion.State == ConnectionState.Open)

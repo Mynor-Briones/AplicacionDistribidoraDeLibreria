@@ -10,14 +10,14 @@ namespace CapaNegocio
 {
     public class NCategorias
     {
-        public static DataTable ListaCategorias()
+       public static DataTable ListaCategorias()
         {
             return new DCategoria().ListaCategorias();
         }
-        /*
-        public static DataTable Mostrar(int parNumeroPagina, int parRegistrosPorPagina)
+
+       public static DataTable Mostrar(int parRegistrosPorPagina, int parNumeroPagina)
         {
-            return new DCategoria().Mostrar(parNumeroPagina, parRegistrosPorPagina);
+            return new DCategoria().Mostrar(parRegistrosPorPagina, parNumeroPagina );
         }
 
         public static int Tamaño(int parRegistrosPorPagina)
@@ -25,7 +25,7 @@ namespace CapaNegocio
             return new DCategoria().Tamaño(parRegistrosPorPagina);
         }
 
-
+        
         public static DataTable Buscar(String parNombre_Buscado)
         {
             DCategoria categorias = new DCategoria();
@@ -33,7 +33,7 @@ namespace CapaNegocio
 
             return categorias.Buscar(categorias);
         }
-
+        
         public static String Eliminar(int parId_Categoria)
         {
             DCategoria categorias = new DCategoria();
@@ -60,6 +60,6 @@ namespace CapaNegocio
 
             return categorias.Editar(categorias);
         }
-        */
+        
     }
 }

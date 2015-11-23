@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CapaNegocio;
+using System.Data.SqlClient;
 
 namespace CapaPresentacion
 {
@@ -16,70 +17,87 @@ namespace CapaPresentacion
         int registroporpagina = 17;
         int numeropagina = 1;
         int cantidadpaginas;
+
+        //*******************************************************************************
+        //*******************************************************************************
         public Productos()
         {
-           InitializeComponent();
-            this.Dock = DockStyle.Fill;
-            Mostrar(); 
+            InitializeComponent();
+            Mostrar();
         }
+
+        //*******************************************************************************
+        //*******************************************************************************
        public void Mostrar()
+       {
+        try
         {
-            this.dataGridViewProductos.DataSource = NProductos.Mostrar(registroporpagina, numeropagina);
-            cantidadpaginas = NProductos.Tamaño(registroporpagina);
-            this.labelPaginacion.Text = String.Format("pagina {0} de {1}", numeropagina, cantidadpaginas);
+                this.Dock = DockStyle.Fill;
+                this.dataGridViewProductos.DataSource = NProductos.Mostrar(registroporpagina, numeropagina );
+                this.dataGridViewProductos.Columns[0].Visible = false;
+                this.dataGridViewProductos.Columns[4].DefaultCellStyle.Format = "0.00## $";
+                this.dataGridViewProductos.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+                cantidadpaginas = NProductos.Tamaño(registroporpagina);
+                this.labelPaginacion.Text = String.Format("Página {0} de {1}", numeropagina, cantidadpaginas);
+                    
+            }
+            catch (Exception ex)
+            {
+                MensajeError(ex.Message);
+            }
         }
-//********************************************************************//
+       //*******************************************************************************
+       //*******************************************************************************
        public void Buscar()
        {
            try
            {
-               this.dataGridViewProductos.DataSource = NProductos.Buscar
-                   (this.textboxNombreBuscar.Text);
+               this.dataGridViewProductos.DataSource = NProductos.Buscar (this.textboxNombreBuscar.Text);
            }
            catch (Exception ex)
            {
                MessageBox.Show(ex.Message);
            }
        }
-
+       //*******************************************************************************
+       //*******************************************************************************
         public void Refrescar ()
        {
            this.numeropagina = 1;
            this.Mostrar();
            this.textboxNombreBuscar.Text = String.Empty;
-
        }
-        // viene del FrmAgregarProducto linea 73
+        //*******************************************************************************
+        //*******************************************************************************
+        // viene del FrmAgregarProducto linea 92
         public void Mensaje(String mensaje)
         {
-            this.labelMensajes.Text = mensaje;
+         //   this.labelMensajes.Text = mensaje;
+        }
+        // Por eso e daba error en el owner por qe esto era lo qe faltaba. todo el clavo estaba
+        //en el ensae de error
+        //if (mensaje == "Y")
+        //            {
+        //                this._owner.mensaje(String.Format("El Producto {0} ha sido AGREGADO", this.textBoxNombreProducto.Text));
+        //                this._owner.Refrescar();
+        //                this.Close();
+        //            }
+        // Eliinar prodctos
+        public void LimpiarMensaje()
+        {
+           // this.labelMensajes.Text = String.Empty;
+        }
+        /******************************************************/
+        private void MensajeError(string mensaje)
+        {
+            MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public DataGridViewRow ObtenerSeleccion()
+        {
+            DataGridViewRow filaSeleccionada = this.dataGridViewProductos.Rows[this.dataGridViewProductos.CurrentRow.Index];
+            return filaSeleccionada;
         }
 //********************************************************************//
-        private void buttonPaginacionAtras_Click(object sender, EventArgs e)
-        {
-            if (numeropagina > 1)
-            {
-                numeropagina = numeropagina - 1;
-                Mostrar();
-            }
-        }
-
-        private void buttonPaginacionSiguiente_Click(object sender, EventArgs e)
-        {
-            if (numeropagina < cantidadpaginas)
-            {
-                numeropagina = numeropagina + 1;
-                Mostrar();
-            }
-
-        }
-
-        private void buttonAgregar_Click(object sender, EventArgs e)
-        {
-            FormAgregarNewProducto nuevoproducto = new FormAgregarNewProducto();
-            nuevoproducto.ShowDialog();
-        }
-
         private void textboxNombreBuscar_TextChanged(object sender, EventArgs e)
         {
             if (this.textboxNombreBuscar.Text==String.Empty)
@@ -95,10 +113,107 @@ namespace CapaPresentacion
             }
         }
 
-        private void buttonBuscar_Click(object sender, EventArgs e)
+        //*******************************************************************************
+        //*******************************************************************************
+        private void buttonRefrescar_Click(object sender, EventArgs e)
         {
             this.Refrescar();
+            this.LimpiarMensaje();
         }
 
+        //*******************************************************************************
+        //*******************************************************************************
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            FormAgregarNewProducto nuevoproducto = new FormAgregarNewProducto();
+            nuevoproducto.ShowDialog();
+        }
+        //*******************************************************************************
+        //*******************************************************************************
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridViewProductos.Rows.Count > 0)
+                {
+                    FrmEditarProducto editarProducto = new FrmEditarProducto(this);
+                    editarProducto.ShowDialog();
+                }
+                else
+                {
+                    MensajeError("Debes seleccionar una fila para editar");
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError(ex.Message);
+            }
+        }
+        //*******************************************************************************
+        //*******************************************************************************
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.dataGridViewProductos.Rows.Count > 0)
+                {
+                    DialogResult confirmacion = MessageBox.Show("¿Seguro deseas eliminar este producto?", "Eliminar Producto",
+                    MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                    if (confirmacion == DialogResult.OK)
+                    {
+                        String mensaje = NProductos.Eliminar(Convert.ToInt32(ObtenerSeleccion().Cells["ID"].Value));
+                        if (mensaje == "Y")
+                        {
+                            Mensaje(String.Format("El Producto {0} ha sido ELIMINADO", 
+                                Convert.ToString(ObtenerSeleccion().Cells["NOMBRE"].Value)));
+                            Refrescar();
+                        }
+                        else
+                        {
+                            MensajeError(mensaje);
+                            Refrescar();
+                        }
+                    }
+                }
+                else
+                {
+                    MensajeError("Debes seleccionar una fila para eliminar");
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                MensajeError(ex.Message);
+            }
+        }
+
+        //*******************************************************************************
+        //*******************************************************************************
+        private void buttonPaginacionAtras_Click(object sender, EventArgs e)
+        {
+            if (numeropagina > 1)
+            {
+                numeropagina = numeropagina - 1;
+                Mostrar();
+            }
+        }
+
+        //*******************************************************************************
+        //*******************************************************************************
+        private void buttonPaginacionSiguiente_Click(object sender, EventArgs e)
+        {
+            if (numeropagina < cantidadpaginas)
+            {
+                numeropagina = numeropagina + 1;
+                Mostrar();
+            }
+
+        }
+
+       
     }
-}
+
+    }
+

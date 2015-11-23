@@ -35,8 +35,8 @@
             this.buttonProductos = new System.Windows.Forms.Button();
             this.buttonCategoria = new System.Windows.Forms.Button();
             this.buttonCliente = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonTransporte = new System.Windows.Forms.Button();
+            this.buttonEmpleados = new System.Windows.Forms.Button();
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,8 +72,8 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonProductos, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.buttonCategoria, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.buttonCliente, 0, 3);
-            this.tableLayoutPanel2.Controls.Add(this.button5, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.button6, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.buttonTransporte, 0, 4);
+            this.tableLayoutPanel2.Controls.Add(this.buttonEmpleados, 0, 5);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 7;
@@ -99,7 +99,6 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(88, 83);
             this.button7.TabIndex = 15;
-            this.button7.Text = "REPORTE";
             this.button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button7.UseVisualStyleBackColor = false;
             // 
@@ -120,6 +119,7 @@
             this.buttonPedido.Text = "PEDIDO";
             this.buttonPedido.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonPedido.UseVisualStyleBackColor = false;
+            this.buttonPedido.Click += new System.EventHandler(this.buttonPedido_Click);
             // 
             // buttonProductos
             // 
@@ -157,6 +157,7 @@
             this.buttonCategoria.Text = "CATEGORIA";
             this.buttonCategoria.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCategoria.UseVisualStyleBackColor = false;
+            this.buttonCategoria.Click += new System.EventHandler(this.buttonCategoria_Click_1);
             // 
             // buttonCliente
             // 
@@ -175,42 +176,45 @@
             this.buttonCliente.Text = "CLIENTE";
             this.buttonCliente.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonCliente.UseVisualStyleBackColor = false;
+            this.buttonCliente.Click += new System.EventHandler(this.buttonCliente_Click);
             // 
-            // button5
+            // buttonTransporte
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonTransporte.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button5.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.Orange;
-            this.button5.Image = global::CapaPresentacion.Properties.Resources._50_512;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button5.Location = new System.Drawing.Point(3, 363);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(88, 85);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "TRANSPORTE";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button5.UseVisualStyleBackColor = false;
+            this.buttonTransporte.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonTransporte.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTransporte.ForeColor = System.Drawing.Color.Orange;
+            this.buttonTransporte.Image = global::CapaPresentacion.Properties.Resources._50_512;
+            this.buttonTransporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonTransporte.Location = new System.Drawing.Point(3, 363);
+            this.buttonTransporte.Name = "buttonTransporte";
+            this.buttonTransporte.Size = new System.Drawing.Size(88, 85);
+            this.buttonTransporte.TabIndex = 13;
+            this.buttonTransporte.Text = "TRANSPORTE";
+            this.buttonTransporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonTransporte.UseVisualStyleBackColor = false;
+            this.buttonTransporte.Click += new System.EventHandler(this.buttonTransporte_Click);
             // 
-            // button6
+            // buttonEmpleados
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.buttonEmpleados.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button6.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.Orange;
-            this.button6.Image = global::CapaPresentacion.Properties.Resources.dafault_profile_pic;
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button6.Location = new System.Drawing.Point(3, 454);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(88, 96);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "EMPLEADO";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button6.UseVisualStyleBackColor = false;
+            this.buttonEmpleados.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonEmpleados.Font = new System.Drawing.Font("Candara", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEmpleados.ForeColor = System.Drawing.Color.Orange;
+            this.buttonEmpleados.Image = global::CapaPresentacion.Properties.Resources.dafault_profile_pic;
+            this.buttonEmpleados.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.buttonEmpleados.Location = new System.Drawing.Point(3, 454);
+            this.buttonEmpleados.Name = "buttonEmpleados";
+            this.buttonEmpleados.Size = new System.Drawing.Size(88, 96);
+            this.buttonEmpleados.TabIndex = 14;
+            this.buttonEmpleados.Text = "EMPLEADO";
+            this.buttonEmpleados.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonEmpleados.UseVisualStyleBackColor = false;
+            this.buttonEmpleados.Click += new System.EventHandler(this.buttonEmpleados_Click);
             // 
             // panelContenedor
             // 
@@ -288,8 +292,8 @@
         private System.Windows.Forms.Button buttonProductos;
         private System.Windows.Forms.Button buttonCategoria;
         private System.Windows.Forms.Button buttonCliente;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonTransporte;
+        private System.Windows.Forms.Button buttonEmpleados;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Panel panelContenedor;
         private System.Windows.Forms.MenuStrip menuStrip1;

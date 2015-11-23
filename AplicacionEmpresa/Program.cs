@@ -17,7 +17,7 @@ namespace AplicacionEmpresa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmInicios1());  /*FrmInicio / FrmInicios1*/
+            Application.Run(new FrmInicios1());
         }
     }
 }

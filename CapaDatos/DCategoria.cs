@@ -15,6 +15,8 @@ namespace CapaDatos
         public String Descripcion { get; set; }
         public String Nombre_Buscado { get; set; }
 
+        //***********************************************************************
+        //***********************************************************************
         public DCategoria()
           {
 
@@ -27,6 +29,8 @@ namespace CapaDatos
             this.Nombre_Buscado = parNombre_Categoria_Buscado;
         }
 
+        //***********************************************************************
+        //***********************************************************************
         public DataTable ListaCategorias()
         {
             DataTable TablaDatos = new DataTable("Produccion.Categorias");
@@ -59,7 +63,9 @@ namespace CapaDatos
             return TablaDatos;
         }
 
-     /*   public DataTable Mostrar(int parNumeroPagina, int parRegistrosPorPagina)
+        //************************************************************
+        //************************************************************
+       public DataTable Mostrar(int parRegistrosPorPagina, int parNumeroPagina)
         {
             DataTable TablaDatos = new DataTable("Produccion.Categorias");
             SqlConnection SqlConexion = new SqlConnection();
@@ -71,20 +77,21 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.MostrarCategorias";
+                SqlComando.CommandText = "Produccion.CategoriasMostrar";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
-                SqlParameter ParNumeroPagina = new SqlParameter();
-                ParNumeroPagina.ParameterName = "@NumeroPagina";
-                ParNumeroPagina.SqlDbType = SqlDbType.Int;
-                ParNumeroPagina.Value = parNumeroPagina;
-                SqlComando.Parameters.Add(ParNumeroPagina);
 
                 SqlParameter ParRegistrosPorPagina = new SqlParameter();
                 ParRegistrosPorPagina.ParameterName = "@RegistrosPorPagina";
                 ParRegistrosPorPagina.SqlDbType = SqlDbType.Int;
                 ParRegistrosPorPagina.Value = parRegistrosPorPagina;
                 SqlComando.Parameters.Add(ParRegistrosPorPagina);
+
+                SqlParameter ParNumeroPagina = new SqlParameter();
+                ParNumeroPagina.ParameterName = "@NumeroPagina";
+                ParNumeroPagina.SqlDbType = SqlDbType.Int;
+                ParNumeroPagina.Value = parNumeroPagina;
+                SqlComando.Parameters.Add(ParNumeroPagina);
 
                 SqlComando.ExecuteNonQuery();
 
@@ -106,6 +113,9 @@ namespace CapaDatos
             return TablaDatos;
         }
 
+       //***********************************************************************
+       //***********************************************************************
+        
         public int Tamaño(int parRegistrosPorPagina)
         {
             SqlConnection SqlConexion = new SqlConnection();
@@ -118,7 +128,7 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.TamañoCategorias";
+                SqlComando.CommandText = "Produccion.CategoriasTamaño";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParRegistrosPorPagina = new SqlParameter();
@@ -150,6 +160,9 @@ namespace CapaDatos
             return totalPaginas;
         }
 
+        //***********************************************************************
+        //***********************************************************************
+        
         public DataTable Buscar(DCategoria parCategorias)
         {
             DataTable TablaDatos = new DataTable("Produccion.Categorias");
@@ -162,7 +175,7 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.BuscarCategoria";
+                SqlComando.CommandText = "Produccion.CategoriaBuscar";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParNombre_Buscado = new SqlParameter();
@@ -193,6 +206,9 @@ namespace CapaDatos
             return TablaDatos;
         }
 
+        //***********************************************************************
+        //***********************************************************************
+        
         public string Insertar(DCategoria parCategorias)
         {
             string Respuesta = "";
@@ -205,7 +221,7 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.InsertarCategoria";
+                SqlComando.CommandText = "Produccion.CategoriaInsertar";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParNombre_Categoria = new SqlParameter();
@@ -257,6 +273,9 @@ namespace CapaDatos
             return Respuesta;
         }
 
+        //***********************************************************************
+        //***********************************************************************
+
         public string Eliminar(DCategoria parCategorias)
         {
             string Respuesta = "";
@@ -269,7 +288,7 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.EliminarCategoria";
+                SqlComando.CommandText = "Produccion.CategoriaEliminar";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParId_Categoria = new SqlParameter();
@@ -306,6 +325,8 @@ namespace CapaDatos
             return Respuesta;
         }
 
+        //***********************************************************************
+        //***********************************************************************
         public string Editar(DCategoria parCategorias)
         {
             string Respuesta = "";
@@ -318,7 +339,7 @@ namespace CapaDatos
 
                 SqlCommand SqlComando = new SqlCommand();
                 SqlComando.Connection = SqlConexion;
-                SqlComando.CommandText = "Produccion.EditarCategoria";
+                SqlComando.CommandText = "Produccion.CategoriaEditar";
                 SqlComando.CommandType = CommandType.StoredProcedure;
 
                 SqlParameter ParId_Categoria = new SqlParameter();
@@ -375,6 +396,8 @@ namespace CapaDatos
 
             return Respuesta;
         }
-        */
+        //***********************************************************************
+        //***********************************************************************
+        
     }
 }

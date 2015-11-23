@@ -109,17 +109,14 @@
             // 
             // comboBoxCategoria
             // 
-            this.comboBoxCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBoxCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategoria.DropDownWidth = 350;
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Candara", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxCategoria.Font = new System.Drawing.Font("Candara", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxCategoria.FormattingEnabled = true;
             this.comboBoxCategoria.Location = new System.Drawing.Point(290, 88);
             this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(359, 34);
-            this.comboBoxCategoria.TabIndex = 28;
+            this.comboBoxCategoria.Size = new System.Drawing.Size(359, 26);
+            this.comboBoxCategoria.TabIndex = 30;
             // 
             // textBoxDetalles
             // 
@@ -151,6 +148,7 @@
             this.buttonSalir.TabIndex = 30;
             this.buttonSalir.Text = "Salir";
             this.buttonSalir.UseVisualStyleBackColor = true;
+            this.buttonSalir.Click += new System.EventHandler(this.buttonSalir_Click);
             // 
             // buttonGuardar
             // 
@@ -160,6 +158,7 @@
             this.buttonGuardar.TabIndex = 29;
             this.buttonGuardar.Text = "Gardar";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click_1);
             // 
             // tableLayoutPanel2
             // 

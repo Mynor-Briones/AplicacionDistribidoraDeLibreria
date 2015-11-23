@@ -40,6 +40,28 @@ namespace CapaNegocio
 
              return productos.Insertar(productos);
          }
+
+         public static String Eliminar(int parId_Producto)
+         {
+             DProductos productos = new DProductos();
+             productos.Id_Producto = parId_Producto;
+
+             return productos.Eliminar(productos);
+         }
+
+         public static String Editar(int parId_Producto, String parNombre_Producto,
+            String parNombre_Categoria, decimal parPrecio_Unitario, String parDetalles)
+         {
+             DProductos productos = new DProductos();
+             productos.Id_Producto = parId_Producto;
+             productos.Nombre_Producto = parNombre_Producto;
+             productos.Nombre_Categoria = parNombre_Categoria;
+             productos.Precio_Unitario = parPrecio_Unitario;
+             productos.Detalles = parDetalles;
+
+             return productos.Editar(productos);
+         }
+
     }
 
 }

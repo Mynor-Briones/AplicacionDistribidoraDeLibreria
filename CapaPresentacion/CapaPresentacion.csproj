@@ -41,11 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Cliente.cs">
+    <Compile Include="Categorias.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Cliente.Designer.cs">
-      <DependentUpon>Cliente.cs</DependentUpon>
+    <Compile Include="Categorias.Designer.cs">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clientes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Clientes.Designer.cs">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Empleados.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Empleados.Designer.cs">
+      <DependentUpon>Empleados.cs</DependentUpon>
     </Compile>
     <Compile Include="FormAgregarNewProducto.cs">
       <SubType>Form</SubType>
@@ -53,17 +65,29 @@
     <Compile Include="FormAgregarNewProducto.Designer.cs">
       <DependentUpon>FormAgregarNewProducto.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarProductos.cs">
+    <Compile Include="FrmAgregarNuevaCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmAgregarProductos.Designer.cs">
-      <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    <Compile Include="FrmAgregarNuevaCategoria.Designer.cs">
+      <DependentUpon>FrmAgregarNuevaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEditarProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEditarProducto.Designer.cs">
+      <DependentUpon>FrmEditarProducto.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmInicios1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmInicios1.Designer.cs">
       <DependentUpon>FrmInicios1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pedidos.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Pedidos.Designer.cs">
+      <DependentUpon>Pedidos.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos.cs">
       <SubType>UserControl</SubType>
@@ -77,11 +101,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Categorias.cs">
+    <Compile Include="Transporte.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Categorias.Designer.cs">
-      <DependentUpon>Categorias.cs</DependentUpon>
+    <Compile Include="Transporte.Designer.cs">
+      <DependentUpon>Transporte.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -91,17 +115,29 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Cliente.resx">
-      <DependentUpon>Cliente.cs</DependentUpon>
+    <EmbeddedResource Include="Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clientes.resx">
+      <DependentUpon>Clientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Empleados.resx">
+      <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAgregarNewProducto.resx">
       <DependentUpon>FormAgregarNewProducto.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarProductos.resx">
-      <DependentUpon>FrmAgregarProductos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgregarNuevaCategoria.resx">
+      <DependentUpon>FrmAgregarNuevaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEditarProducto.resx">
+      <DependentUpon>FrmEditarProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmInicios1.resx">
       <DependentUpon>FrmInicios1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pedidos.resx">
+      <DependentUpon>Pedidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos.resx">
       <DependentUpon>Productos.cs</DependentUpon>
@@ -111,8 +147,8 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Categorias.resx">
-      <DependentUpon>Categorias.cs</DependentUpon>
+    <EmbeddedResource Include="Transporte.resx">
+      <DependentUpon>Transporte.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
